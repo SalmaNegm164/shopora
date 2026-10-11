@@ -1,0 +1,102 @@
+
+/* Shopora Product Grid */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px 20px;
+  width: 100%;
+}
+
+.product-grid-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 280px;
+  padding: 40px 20px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.product-grid-state > svg {
+  color: var(--color-olive);
+}
+
+.product-grid-state h3 {
+  color: var(--text-primary);
+  font-size: 24px;
+}
+
+.product-grid-state p {
+  max-width: 420px;
+  font-size: 14px;
+}
+
+.product-grid-loader {
+  width: 42px;
+  height: 42px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--color-olive);
+  border-radius: 50%;
+  animation: product-grid-spin 0.8s linear infinite;
+}
+
+.product-grid-retry {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding: 12px 20px;
+  background: var(--color-olive);
+  color: var(--color-white);
+  font-size: 13px;
+  transition: background var(--transition);
+}
+
+.product-grid-retry:hover {
+  background: var(--color-olive-dark);
+}
+
+@keyframes product-grid-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1100px) {
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 12px;
+  }
+
+  .product-grid-state {
+    min-height: 240px;
+    padding: 30px 16px;
+  }
+
+  .product-grid-state h3 {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 360px) {
+  .product-grid {
+    gap: 16px 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-grid-loader {
+    animation-duration: 2s;
+  }
+}

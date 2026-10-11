@@ -1,0 +1,194 @@
+/* Shopora Global Design System */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
+/* Design Tokens */
+
+:root {
+  --color-cream: #f8f5ef;
+  --color-ivory: #fffdf9;
+  --color-beige: #e8dfd1;
+  --color-olive: #666b45;
+  --color-olive-dark: #484c30;
+  --color-black: #191916;
+  --color-white: #ffffff;
+
+  --text-primary: #191916;
+  --text-secondary: #77766e;
+  --text-muted: #a09d94;
+
+  --border-color: #e8e3da;
+  --surface-primary: #fffdf9;
+  --surface-secondary: #f1ede5;
+
+  --font-body: "DM Sans", sans-serif;
+  --font-heading: "Playfair Display", serif;
+
+  --container-width: 1320px;
+  --header-height: 82px;
+
+  --transition: 0.3s ease;
+  --shadow-soft: 0 8px 30px rgba(25, 25, 22, 0.06);
+}
+
+/* Global Reset */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-cream);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+}
+
+button,
+input,
+textarea,
+select {
+  font-size: inherit;
+  outline-color: var(--color-olive);
+}
+
+button {
+  cursor: pointer;
+  background: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button,
+input {
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+::selection {
+  background-color: var(--color-olive);
+  color: var(--color-white);
+}
+
+/* Shared Layout Utilities */
+
+.container {
+  width: min(calc(100% - 48px), var(--container-width));
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding-block: 80px;
+}
+
+.section-heading {
+  margin-bottom: 36px;
+}
+
+.section-heading h2 {
+  margin-bottom: 10px;
+  font-size: clamp(28px, 4vw, 42px);
+}
+
+.section-heading p {
+  color: var(--text-secondary);
+}
+
+/* Custom Scrollbar */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9c0b1;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-olive);
+}
+
+/* Responsive Layout */
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  .container {
+    width: min(calc(100% - 32px), var(--container-width));
+  }
+
+  .section-padding {
+    padding-block: 52px;
+  }
+
+  .section-heading {
+    margin-bottom: 26px;
+  }
+}
+
+/* Reduced Motion Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
